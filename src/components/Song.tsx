@@ -12,12 +12,12 @@ type SongProps = {
    currentSong: Song;
 }
 
-const Song  = (props : SongProps)  => {
+const Song  = ({currentSong} : SongProps)  => {
     return(
     <div className="song-container">
-        <img src ={props.currentSong.cover} alt="cover"></img>
-        <h2>{props.currentSong.name}</h2>
-        <h3>{props.currentSong.artist}</h3>
+        <img src ={currentSong.cover} alt="cover"></img>
+        <h2>{currentSong.name}</h2>
+        <h3>{currentSong.artist}</h3>
     </div>
     )
 }
