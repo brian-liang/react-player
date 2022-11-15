@@ -1,25 +1,24 @@
 import React, {useRef} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import {Song} from './Song.types'
 
-type Song = {
-    name: string;
-    cover: string,
-    artist: string,
-    audio: string;
-    color: string[];
-    id: any;
-    active: boolean;
-}
 type SongProps = {
    currentSong: Song;
+   isPlaying: boolean;
+   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Player = ({currentSong} : SongProps) => {
+const Player = ({currentSong, isPlaying, setIsPlaying} : SongProps) => {
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const playSongHandler = () => {
-        console.log(audioRef.current)
+        if(isPlaying){
+            setIsPlaying(!isPlaying)
+        } else {
+            audioRef.current!.play()
+            setIsPlaying(!isPlaying)
+        }
     }
     return (
         <div className="player">
@@ -33,7 +32,7 @@ const Player = ({currentSong} : SongProps) => {
                 <FontAwesomeIcon className='play' size='2x' icon={faPlay} onClick={playSongHandler}/>
                 <FontAwesomeIcon className='skip-forward' size='2x' icon={faAngleRight}/>
             </div>
-            <audio ref={audioRef} src={currentSong.audio}></audio>
+            <audio src={currentSong.audio} ref={audioRef}></audio>
         </div>
     )
 }
