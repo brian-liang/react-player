@@ -1,15 +1,9 @@
 import React from 'react'
-type Song = {
-    name: string;
-    cover: string,
-    artist: string,
-    audio: string;
-    color: string[];
-    id: any;
-    active: boolean;
-}
+import {SongType} from './Song.types'
+
 type SongProps = {
-   currentSong: Song;
+   currentSong: SongType;
+
 }
 
 const Song  = ({currentSong} : SongProps)  => {

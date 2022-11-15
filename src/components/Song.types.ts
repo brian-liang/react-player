@@ -1,4 +1,4 @@
-export type Song = {
+export type SongType = {
     name: string;
     cover: string,
     artist: string,
