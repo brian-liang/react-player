@@ -55,8 +55,7 @@ const Player = ({currentSong, isPlaying, setIsPlaying} : SongProps) => {
             </div>
             <div className="play-control">
                 <FontAwesomeIcon className='skip-back' size='2x' icon={faAngleLeft}/>
-                {!isPlaying && <FontAwesomeIcon className='play' size='2x' icon={faPlay} onClick={playSongHandler}/>}
-                {isPlaying && <FontAwesomeIcon className='pause' size='2x' icon={faPause} onClick={playSongHandler}/>}
+                <FontAwesomeIcon className='play' size='2x' icon={isPlaying ? faPause: faPlay} onClick={playSongHandler}/>
                 <FontAwesomeIcon className='skip-forward' size='2x' icon={faAngleRight}/>
             </div>
             <audio
