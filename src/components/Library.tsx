@@ -14,6 +14,8 @@ const Library = (props: any) => {
                  currentSong={song}
                  id={song.id}
                  key={song.id}
+                 audioRef={props.audioRef}
+                 isPlaying={props.isPlaying}
                />)}
             </div>
         </div>
