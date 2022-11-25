@@ -3,8 +3,9 @@ import LibrarySong from './LibrarySong'
 import { SongType } from './Song.types'
 
 const Library = (props: any) => {
+    let libraryStatus = props.libraryStatus
     return(
-        <div className="library">
+        <div className="library active-library">
             <h2>Library</h2>
             <div className="library-songs">
                {props.songs.map((song: SongType) =>
